@@ -1,11 +1,13 @@
-import { closeCart, openCart } from "./cart.js";
+import { products } from "../assets/data/data.js";
+import { closeCart, mostrarContenidoCarrito, openCart } from "./cart.js";
 import { initFilterEvents } from "./searcher.js";
 //Intenta separar los eventos en este archivo.
 
 initFilterEvents;
 
-const btnOpenCart = document.getElementById('cart');
-btnOpenCart.addEventListener('click', openCart);
+const btnCart = document.getElementById('cart');
+btnCart.addEventListener('click', openCart);
 
-const btnCloseCart = document.querySelector(".close-button");
-btnCloseCart.addEventListener('click', closeCart);
+btnCart.addEventListener('dblclick', closeCart);
+
+mostrarContenidoCarrito(products);
