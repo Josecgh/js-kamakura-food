@@ -42,13 +42,19 @@ export function mostrarProductos(products) {
     priceContainer.appendChild(buttonAdd);
 
     buttonAdd.addEventListener("click", () => {
-      const listaIds = JSON.parse(localStorage.getItem("carritoIds")) || [];
+      const listaProductos = JSON.parse(localStorage.getItem("carritoIds")) || [];
 
-      if (listaIds.includes(item.id)) {
+      const yaExiste = listaProductos.some(prod => String(prod.id) === String(item.id));
+
+      if (yaExiste) {
         alert("¡Cuidado! Este producto ya está en el carrito.");
       } else {
-        listaIds.push(item.id);
-        localStorage.setItem("carritoIds", JSON.stringify(listaIds));
+        const nuevoItem = {
+          id: item.id,
+          cantidad: 1
+        };
+        listaProductos.push(nuevoItem);
+        localStorage.setItem("carritoIds", JSON.stringify(listaProductos));
         alert(`${item.name} añadido correctamente.`);
         mostrarContenidoCarrito(products);
       }
