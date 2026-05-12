@@ -45,13 +45,5 @@ Queremos imprimir de manera dinámica un menú en nuestra web de comida japonesa
 - Tests del DOM
 - Programación funcional
 
-## Resultado esperado
-
-Dejo un video del resultado esperado
-
-https://github.com/FemCoders/js-kamakura-food/assets/73828751/3a7a8a48-8f50-4c14-92c6-34a8eebbdcde
-
-
-
 
 
