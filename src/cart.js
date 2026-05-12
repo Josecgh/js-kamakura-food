@@ -99,11 +99,13 @@ export function mostrarContenidoCarrito(products) {
 
       buttonMas.addEventListener("click", () => {
         actualizarStorage(cantidadActual + 1);
+        calcularTotal(products);
       });
 
       buttonMenos.addEventListener("click", () => {
         if (cantidadActual > 1) {
           actualizarStorage(cantidadActual - 1);
+          calcularTotal(products);
         }
       });
 
@@ -112,4 +114,30 @@ export function mostrarContenidoCarrito(products) {
       selectorCantidad.appendChild(buttonMenos);
     }
   });
+}
+
+export function calcularTotal(products) {
+  const listaProductos = JSON.parse(localStorage.getItem("carritoIds")) || [];
+  const total = document.getElementById("cart-total");
+  let sumaTotal = 0;
+
+  listaProductos.forEach(item => {
+    const idItem = item.id;
+    const cantidadItem = item.cantidad;
+    
+    const productoEncontrado = products.find(p => String(p.id) === String(idItem))
+
+    if(productoEncontrado) {
+      const subtotal = productoEncontrado.price * cantidadItem;
+      sumaTotal += subtotal;
+    }
+  });
+
+  if(total) {
+    total.textContent = `Total: ${sumaTotal.toFixed(2)} €`;
+  }
+}
+
+export const procederPago = () => {
+  
 }
