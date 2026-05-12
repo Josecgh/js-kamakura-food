@@ -14,7 +14,9 @@ btnCart.addEventListener('dblclick', closeCart);
 mostrarContenidoCarrito(products);
 
 const proceedButon = document.getElementById("proceedPay-button");
-proceedButon.addEventListener('click', verRecibo);
+proceedButon.addEventListener('click', () => {
+  verRecibo(products);
+});
 
 const closeReceipt = document.getElementById("close-receipt");
 closeReceipt.addEventListener('click', ocultarRecibo);

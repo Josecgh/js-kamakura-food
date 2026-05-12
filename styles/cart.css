@@ -197,3 +197,125 @@ h2 {
         width: 100vw;
     }
 }
+
+/* --- ESTILOS DEL RECIBO --- */
+.receipt-product {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.receipt-product h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+}
+
+.receipt-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.receipt-price p {
+  margin: 0;
+  color: #666;
+}
+
+.receipt-price h5 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* --- ESTILOS DEL MODAL (OVERLAY) --- */
+/* Definición de la animación */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100vh); /* Empieza fuera de la pantalla (arriba) */
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0); /* Termina en su posición original (centro) */
+    opacity: 1;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  width: 90%;
+  max-width: 500px;
+  padding: 40px 20px;
+  border-radius: 8px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+
+  /* --- NUEVAS LÍNEAS PARA LA ANIMACIÓN --- */
+  animation: slideDown 0.5s ease-out forwards;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-close-btn:hover {
+    background-color: red;
+}
+
+.modal-close-icon {
+  width: 15px;
+  filter: invert(1);
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 24px;
+  font-family: sans-serif;
+  color: #333;
+}
+
+.modal-text {
+  margin: 0;
+  font-size: 16px;
+  font-family: sans-serif;
+  color: #666;
+  line-height: 1.5;
+}
+
+.modal-logo {
+  width: 100px;
+}
