@@ -1,5 +1,6 @@
 import { products } from "../assets/data/data.js";
-import { calcularTotal, closeCart, mostrarContenidoCarrito, openCart } from "./cart.js";
+import { calcularTotal, openCart, closeCart, mostrarContenidoCarrito } from "./cart.js";
+import { ocultarRecibo, verRecibo } from "./receipt.js";
 import { initFilterEvents } from "./searcher.js";
 //Intenta separar los eventos en este archivo.
 
@@ -12,4 +13,8 @@ btnCart.addEventListener('dblclick', closeCart);
 
 mostrarContenidoCarrito(products);
 
-calcularTotal(products);
+const proceedButon = document.getElementById("proceedPay-button");
+proceedButon.addEventListener('click', verRecibo);
+
+const closeReceipt = document.getElementById("close-receipt");
+closeReceipt.addEventListener('click', ocultarRecibo);

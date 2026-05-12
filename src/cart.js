@@ -43,6 +43,7 @@ export function mostrarContenidoCarrito(products) {
       cartProduct.className = "cart-container";
       cartProduct.style.display = "flex";
       carritoContainer.appendChild(cartProduct);
+      calcularTotal(products);
 
       // --- BOTÓN ELIMINAR ---
       const buttonClean = document.createElement("button");
@@ -54,6 +55,7 @@ export function mostrarContenidoCarrito(products) {
         currentIds.splice(index, 1);
         localStorage.setItem("carritoIds", JSON.stringify(currentIds));
         mostrarContenidoCarrito(products);
+        calcularTotal(products);
       });
 
       const crossImg = document.createElement("img");
@@ -136,8 +138,4 @@ export function calcularTotal(products) {
   if(total) {
     total.textContent = `Total: ${sumaTotal.toFixed(2)} €`;
   }
-}
-
-export const procederPago = () => {
-  
 }
